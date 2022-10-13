@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ticker: MyString
+  animal_test: false
+  nuclear_weapons: false
+  coal_power: false
+  rainforest_destruction: false
+
+two:
+  name: MyString
+  ticker: MyString
+  animal_test: false
+  nuclear_weapons: false
+  coal_power: false
+  rainforest_destruction: false

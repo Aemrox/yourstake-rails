@@ -1,0 +1,47 @@
+<%= form_with(model: company) do |form| %>
+  <% if company.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :ticker, style: "display: block" %>
+    <%= form.text_field :ticker %>
+  </div>
+
+  <div>
+    <%= form.label :animal_test, style: "display: block" %>
+    <%= form.check_box :animal_test %>
+  </div>
+
+  <div>
+    <%= form.label :nuclear_weapons, style: "display: block" %>
+    <%= form.check_box :nuclear_weapons %>
+  </div>
+
+  <div>
+    <%= form.label :coal_power, style: "display: block" %>
+    <%= form.check_box :coal_power %>
+  </div>
+
+  <div>
+    <%= form.label :rainforest_destruction, style: "display: block" %>
+    <%= form.check_box :rainforest_destruction %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
