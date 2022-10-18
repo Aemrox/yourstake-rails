@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  resources :companies do
+  root 'companies#index'
+  resources :companies, only: [:index, :new, :create] do
     collection do
-      get 'order'
       get 'filter'
     end
   end
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
