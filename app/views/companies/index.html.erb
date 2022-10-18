@@ -1,31 +1,41 @@
 
-
-<div class = 'row'>
-  <div class = 'col-3 text-white bg-dark'>
-    <h1> Search Companies </h1>
-  </div>
-
-  <div class = 'col-9'>
-    <p style="color: green"><%= notice %></p>
-    <h1>Companies</h1>
-
-    <table class = "table" id="companies_table">
-      <thead>
-        <tr>
-          <th>Company Name</th>
-          <th>Ticker Symbol</th>
-          <th>Animal Testing</th>
-          <th>Nuclear Weapons</th>
-          <th>Coal Power</th>
-          <th>Rainforest Destruction</th>
-          <th>Total Problem Areas</th>
-        </tr>
-      </thead>
-      <% @companies.each do |company| %>
-        <%= render company %>
+<div class = 'container-fluid' >
+  <div class = 'row '>
+    <div class = 'col-3 text-white bg-dark'>
+    <%# Needs padding %>
+      <%= form_with(url: filter_companies_path, method: :get, data: {controller: "search", search_target: "form", turbo_frame: "companies_table"}) do |form| %>
+        <h3> Search Companies </h3>
+        <%= form.label :company_name, "Company Name", class: 'form-label' %>
+        <%= form.text_field :company_name, class: 'form-control', autocomplete: "off", data: { action: "input->search#search" } %>
+        <%= form.label :ticker_symbol, "Ticker Symbol", class: 'form-label' %>
+        <%= form.text_field :ticker_symbol, class: 'form-control', autocomplete: "off", data: { action: "input->search#search" }  %>
+        <div class = 'container'>
+          <h3> Issue Exclusion </h3>
+          <div class="input-group">
+            <div class="input-group-text">Animal Testing</div>
+            <%= form.select :animal_testing, [["No Preference", nil], ["Yes", true], ["No", false]], { selected: "Animal Testing" }, { class: 'form-select', data: { action: "change->search#search"} } %>
+          </div>
+          <div class="input-group">
+            <div class="input-group-text">Nuclear Weapons</div>
+            <%= form.select :nuclear_weapons, [["No Preference", nil], ["Yes", true], ["No", false]], { selected: "Animal Testing" }, { class: 'form-select', data: { action: "change->search#search"} } %>
+          </div>
+          <div class="input-group">
+            <div class="input-group-text">Coal Power</div>
+            <%= form.select :coal_power, [["No Preference", nil], ["Yes", true], ["No", false]], { selected: "Animal Testing" }, { class: 'form-select', data: { action: "change->search#search"} } %>
+          </div>
+          <div class="input-group">
+            <div class="input-group-text">Rainforest Destruction</div>
+            <%= form.select :rainforest_destruction, [["No Preference", nil], ["Yes", true], ["No", false]], { selected: "Animal Testing" }, { class: 'form-select', data: { action: "change->search#search"} } %>
+          </div>
+        </div>
       <% end %>
-    </table>
+    </div>
 
-    <%= link_to "New company", new_company_path %>
+    <div class = 'col-9'>
+      <p style="color: green"><%= notice %></p>
+      <%= render 'companies', companies: @companies %>
+
+      <%= link_to "New company", new_company_path %>
+    </div>
   </div>
 </div>

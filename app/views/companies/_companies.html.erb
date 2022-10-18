@@ -1,0 +1,25 @@
+<h1>Companies</h1>
+<%= turbo_frame_tag "companies_table" do %>
+  <table class = "table" >
+    <thead>
+      <tr class = "table-dark">
+        <th>
+          <%= sort_direction_img if params[:column] == "company_name" %>
+          <%= sort_link(column: "company_name", label_text: "Company Name") %>
+        </th>
+        <th>
+          <%= sort_direction_img if params[:column] == "ticker_symbol" %>
+          <%= sort_link(column: "ticker_symbol", label_text: "Ticker Symbol") %>
+        </th>
+        <th>Animal Testing</th>
+        <th>Nuclear Weapons</th>
+        <th>Coal Power</th>
+        <th>Rainforest Destruction</th>
+        <th>Total Problem Areas</th>
+      </tr>
+    </thead>
+    <% companies.each do |company| %>
+      <%= render company %>
+    <% end %>
+  </table>
+<% end %>
