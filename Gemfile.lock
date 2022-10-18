@@ -138,6 +138,9 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
+      racc (~> 1.4)
+    pg (1.4.4)
     popper_js (2.11.6)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -219,7 +222,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.3-x86_64-darwin)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -250,6 +252,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -259,6 +262,7 @@ DEPENDENCIES
   factory_bot_rails
   importmap-rails
   jbuilder
+  pg (~> 1.4.4)
   pry
   puma (~> 5.0)
   rails (~> 7.0.4)
@@ -266,7 +270,6 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data

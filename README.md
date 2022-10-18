@@ -15,10 +15,7 @@ to setup and something I have experience in.  I used a scaffold to set up a quic
 I have given two options to set this up - one for if you have postgres, ruby, and bundler ready to go as an environment. The other if you'd prefer not to set all that up and just use Docker.
 
 ### Docker
-The docker setup is certianly easier. To get started, checkout the correct branch:
-`git checkout docker-attempt-2`
-
-To get started run:
+The docker setup is certianly easier. To get started run:
 `docker compose up`
 
 This will build the app and all it's dependencies using ruby and postgres images from Docker. It will take 2-5 minutes depending on your computer, but obviates the need for any other setup.
